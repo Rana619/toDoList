@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="\style.css">
+    <title>What to Do Today</title>
+</head>
+<body>
+  
+    <div class="container" >
+
+        <h1 class="headerDate"><%=  listTitel %></h1>
+      <ul class="listCont">
+        <%  for(var i=0 ; i<listItems.length ; i++){ %>
+          <div class="listcontainer"><li class="list_item"><form id="cmpltBtn" action="/complete" method="POST"><button id="chkbox" name="cpltItem" value=<%= listItems[i] %> type="submit"<i class="fas fa-check"></i></button></form><%= listItems[i] %></li><form class="deletebtn" action="/deleteindi" method="POST"><button id="deletebutton"  name="delItem" value=<%= listItems[i] %> type="submit">X</button></form></div>
+        <%  }  %>
+      </ul>
+    <form class="inputCont" action="/" method="POST">
+      <input type="text" id="name" name="listitem" autocomplete="off" placeholder="Task" required />
+      <button type="submit" name="list" value=<%= listTitel %> ><i class="fas fa-plus"></i></button>
+    </form>
+       
+      <form action="/delete" method="POST" class="deleteContainer">
+        
+        <button type="submit" class="deleteList" name="clearList"><i class="fas fa-times"></i></button>
+        
+    </form>
+   
+    </div>
+
+    <script src="fun.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+body{
+   display: flex;
+   justify-content: center;
+   margin: 0px;
+   padding: 0px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 350px;
+}
+
+.headerDate{
+  
+  background-color: rgb(53, 128, 53);
+  width: 350px;
+  font-size: 25px;
+  text-align: center;
+  padding: 14px 0px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+  margin-bottom: 45px;
+  color: white;
+}
+.listCont{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  /* box-shadow: 2px 2px 7px 0px gray; */
+  background-color: rgba(55,55,55,0);
+}
+.listcontainer{
+  display: flex;
+   margin-bottom: 5px;
+}
+.list_item{
+  background-color: rgb(182, 214, 182);
+  margin-top: 1px;
+  padding: 13px 0px;
+  font-size: 20px;
+  padding-left: 20px;
+  border-radius: 10px;
+  color: black;
+  font-family: 'Lucida Sans';
+  list-style: none;
+  min-width: 290px;
+}
+.deletebtn{
+  display: inline-block;
+  height: 50px;
+  width: 40px;
+  background-color:rgb(182, 214, 182) ;
+  border-radius: 20%;
+  padding-right: 5px;
+}
+#deletebutton{
+  font-size: 20px;
+  margin-top: 10px;
+  margin-right: 8px;    
+  width: 27px;
+  height: 27px;
+}
+#deletebutton:hover{
+  background-color: red;
+  color: white;
+}
+#cmpltBtn{
+  display: inline;
+  position: relative;
+  top: 7px;
+  padding: 0px;
+  margin: opx;
+  border-radius: 0%;
+}
+
+#chkbox{
+  padding: 0px;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  border-style: none ;
+}
+.fa-check{
+  font-size: 15px;
+  position:relative;
+  bottom: 10px;
+}
+.inputCont {
+  margin-top: 1px;
+  background-color:rgb(182, 214, 182) ;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius:10px ;
+}
+
+input {
+  width: 75%;
+  border: 0;
+  outline: 0;
+  padding: 0 0;
+  border-bottom: 2px solid #d3d3d3;
+  box-shadow: none;
+  color: #111;
+  font-size: 20;
+  height: 30px;
+  margin-left: 23px;
+  background-color:rgb(182, 214, 182) ;
+  
+}
+input:focus,
+input:valid {
+  border-color: white;
+}
+input:focus~label,
+input:valid~label {
+  font-size: 14px;
+  top: -24px;
+  color: #00dd22;
+}
+
+form button{
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+  font-size: 30px;
+}
+.deleteContainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.deleteList{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  font-size: 60px;
+  padding: 0px;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+  border: none;
+  text-align: center;
+  padding-top: 3px;
+}
+.deleteList:hover{
+ background-color: rgb(211, 48, 48);
+ color: white;
+}
+.deleteList:active{
+  box-shadow: none;
+}
+form button:hover{
+  background-color: rgb(91, 207, 91);
+  color: white;
+}
