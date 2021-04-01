@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="\style.css">
     <title>What to Do Today</title>
+    <script>
+      function confirmSubmit()
+{
+var agree=confirm("Are you sure you wish to continue?");
+if (agree)
+ return true ;
+else
+ return false ;
+}
+    </script>
 </head>
 <body>
   
@@ -15,7 +25,19 @@
         <h1 class="headerDate"><%=  listTitel %></h1>
       <ul class="listCont">
         <%  for(var i=0 ; i<listItems.length ; i++){ %>
-          <div class="listcontainer"><li class="list_item"><form id="cmpltBtn" action="/complete" method="POST"><button id="chkbox" name="cpltItem" value=<%= listItems[i] %> type="submit"<i class="fas fa-check"></i></button></form><%= listItems[i] %></li><form class="deletebtn" action="/deleteindi" method="POST"><button id="deletebutton"  name="delItem" value=<%= listItems[i] %> type="submit">X</button></form></div>
+          <div class="listcontainer">
+            <li class="list_item">
+              <form id="cmpltBtn" action="/complete" method="POST">
+                <button id="chkbox" name="cpltItem" value=<%= listItems[i].replace(/\s/g, '-') %> type="submit"<i class="fas fa-check"></i>
+                </button>
+              </form>
+              <%= listItems[i] %>
+            </li>
+            <form class="deletebtn" action="/deleteindi" method="POST">
+                <button id="deletebutton"  name="delItem" value=<%= listItems[i].replace(/\s/g, '-') %> type="submit">X</button>
+              </form>
+              
+            </div>
         <%  }  %>
       </ul>
     <form class="inputCont" action="/" method="POST">
@@ -25,12 +47,14 @@
        
       <form action="/delete" method="POST" class="deleteContainer">
         
-        <button type="submit" class="deleteList" name="clearList"><i class="fas fa-times"></i></button>
+        <button type="submit" class="deleteList raman" name="clearList" onclick='return confirmSubmit()'><i class="fas fa-times"></i></button>
         
     </form>
    
     </div>
 
-    <script src="fun.js"></script>
+    <script src="fun.js">
+    
+    </script>
 </body>
 </html>
