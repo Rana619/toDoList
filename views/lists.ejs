@@ -15,7 +15,19 @@
         <h1 class="headerDate"><%=  listTitel %></h1>
       <ul class="listCont">
         <%  for(var i=0 ; i<listItems.length ; i++){ %>
-          <div class="listcontainer"><li class="list_item"><form id="cmpltBtn" action="/complete" method="POST"><button id="chkbox" name="cpltItem" value=<%= listItems[i] %> type="submit"<i class="fas fa-check"></i></button></form><%= listItems[i] %></li><form class="deletebtn" action="/deleteindi" method="POST"><button id="deletebutton"  name="delItem" value=<%= listItems[i] %> type="submit">X</button></form></div>
+          <div class="listcontainer">
+            <li class="list_item">
+              <form id="cmpltBtn" action="/complete" method="POST">
+                <button id="chkbox" name="cpltItem" value=<%= listItems[i].replace(/\s/g, '-') %> type="submit"<i class="fas fa-check"></i>
+                </button>
+              </form>
+              <%= listItems[i] %>
+            </li>
+            <form class="deletebtn" action="/deleteindi" method="POST">
+                <button id="deletebutton"  name="delItem" value=<%= listItems[i].replace(/\s/g, '-') %> type="submit">X</button>
+              </form>
+              
+            </div>
         <%  }  %>
       </ul>
     <form class="inputCont" action="/" method="POST">
