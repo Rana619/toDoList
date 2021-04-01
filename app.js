@@ -2,6 +2,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const e = require("express");
 
 const app = express();
 var items = [];
@@ -86,6 +87,7 @@ app.post("/deleteindi", function (req, res) {
 
 app.post("/delete", function (req, res) {
   flag = 1;
+
   while (items.length > 0) {
     items.pop();
   }

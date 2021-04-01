@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="\style.css">
     <title>What to Do Today</title>
+    <script>
+      function confirmSubmit()
+{
+var agree=confirm("Are you sure you wish to continue?");
+if (agree)
+ return true ;
+else
+ return false ;
+}
+    </script>
 </head>
 <body>
   
@@ -37,12 +47,14 @@
        
       <form action="/delete" method="POST" class="deleteContainer">
         
-        <button type="submit" class="deleteList" name="clearList"><i class="fas fa-times"></i></button>
+        <button type="submit" class="deleteList raman" name="clearList" onclick='return confirmSubmit()'><i class="fas fa-times"></i></button>
         
     </form>
    
     </div>
 
-    <script src="fun.js"></script>
+    <script src="fun.js">
+    
+    </script>
 </body>
 </html>
