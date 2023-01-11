@@ -1,162 +1,482 @@
-* {
+*{
   margin: 0px;
   padding: 0px;
 }
-body {
-  display: flex;
-  justify-content: center;
-  margin: 0px;
-  padding: 0px;
+body{
+  font-family: Arial, Helvetica, sans-serif;
+   display: flex;
+   justify-content: center;
+   margin: 0px;
+   padding: 0px;
+   background: linear-gradient(to bottom left, rgb(142, 184, 211) 50%, rgb(107, 174, 192) 50%);
+   min-height: 100vh;
+   overflow-x: hidden;
 }
-.container {
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 350px;
+    color: white;
+}
+.itemsdig{
+  font-family: 'Montserrat', sans-serif;
+}
+.newListCont{
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  margin-top: 50px;
-  width: 350px;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 }
-
-.headerDate {
-  background-color: rgb(53, 128, 53);
-  width: 350px;
-  font-size: 25px;
+.newListCont form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
   text-align: center;
-  padding: 14px 0px;
-  border-radius: 10px;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-  margin-bottom: 45px;
+}
+.newListCont form input{
+  margin: 0px;
+  width: 50%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-style: none;
+  opacity: 0.7;
+  background-color: rgba(151, 117, 5,0);
+  border-bottom: 2px solid white;
+  padding-left: 10px;
+  font-size: 20px;
+}
+.newListCont form label{
+  font-size: 30px;
   color: white;
 }
-.listCont {
+
+.listShowCont{
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.listShowCont h1 {
+  margin-bottom: 5vh;
+  border-bottom: 2px solid rgb(236, 226, 226);
+  color: white;
+  padding-left:10px ;
+  padding-right: 10px;
+}
+.listCont{
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  /* box-shadow: 2px 2px 7px 0px gray; */
-  background-color: rgba(55, 55, 55, 0);
+  border-radius: 5px;
+  background-color: white;
 }
-.listcontainer {
-  display: flex;
+.noteHeader{
+  color: black;
+  height: 130px;
   margin-bottom: 5px;
 }
-.list_item {
-  background-color: rgb(182, 214, 182);
-  margin-top: 1px;
-  padding: 13px 0px;
+.headerDate{
+  height: 65%;
+  position: relative;
+}
+.box1{
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  right: 16px;
+  top:10px;
+  border: 4px solid rgb(87, 134, 16);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box2{
+  height: 38px;
+  width: 38px;
+  border: 4px solid rgb(87, 134, 16);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dateCont{
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  font-size: 35px;
+  position: relative;
+  top: 10px;
+  right: 18px;
+  background-color: white;
+}
+sup{
+  font-size: 18px;
+}
+.monthName{
+  position: absolute;
+  right: 16px;
+  top:67px;
   font-size: 20px;
-  padding-left: 20px;
-  border-radius: 10px;
+}
+.listTitle{
+  height: 35%;
+  font-size: 30px;
+  margin-left: 5px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+.topLine{
+ height: 1px;
+ background-color: red;
+ margin-bottom: 2px;
+}
+.listcontainer{
+   display: flex;
+   flex-direction: column;
+   background-color: white;
+   border-bottom: 2px solid blue;
+   position: relative;
+   padding-top: 7px;
+}
+.bottomPart{
+  height:90px ;
+  border-top: 1px solid blue;
+}
+.list_item{
+  background-color: white;
+  opacity: .7;
+  margin-top: 1px;
+  padding: 13px 5px;
+  font-size: 20px;
   color: black;
-  font-family: "Lucida Sans";
+  font-family: 'Lucida Sans';
   list-style: none;
   min-width: 290px;
 }
-.deletebtn {
-  display: inline-block;
-  height: 50px;
-  width: 40px;
-  background-color: rgb(182, 214, 182);
-  border-radius: 20%;
-  padding-right: 5px;
+.list_item span{
+  line-height: 6px;
+  font-size: 18px;
+  color: blue;
+  font-family: 'Indie Flower';
 }
-#deletebutton {
-  font-size: 20px;
-  margin-top: 10px;
-  margin-right: 8px;
+.deletebtn{
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background:none ;
+  padding-right: 5px;
+  margin-top: 5px;
+  position: absolute;
+  top: -10px;
+  right: -1px;
+  box-shadow: none;
+}
+#deletebutton{
+  font-size: 25px;
+  margin-top: 12px;
+  margin-right: 8px;    
   width: 27px;
   height: 27px;
+  background: none;
+  position: relative;
+  top: -6px;
+  right: 7px;
+  box-shadow: none;
 }
-#deletebutton:hover {
+/* #deletebutton:hover{
   background-color: red;
   color: white;
-}
-#cmpltBtn {
+} */
+#cmpltBtn{ 
   display: inline;
   position: relative;
-  top: 7px;
+  top: 5px;
   padding: 0px;
   margin: opx;
-  border-radius: 0%;
+  width: 30px;
+  height: 30px;
 }
-
-#chkbox {
+#chkbox{
   padding: 0px;
   margin-right: 10px;
   width: 20px;
   height: 20px;
-  border-style: none;
+  border-style: none ;
+  font-size: 27px;
 }
-.fa-check {
-  font-size: 15px;
-  position: relative;
-  bottom: 10px;
+.text_dec{
+  text-decoration: line-through;
 }
+.list_item .timeShow{
+  font-size: 11px;
+  color: rgb(88, 70, 7);
+  float: right;
+  margin-right: 0px;
+  margin-top: 7px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .inputCont {
   margin-top: 1px;
-  background-color: rgb(182, 214, 182);
-  height: 50px;
+  background-color:white ;
+  height: 75px;
   display: flex;
   align-items: center;
   width: 100%;
-  border-radius: 10px;
 }
-
+.inputCont input{
+  font-family: 'Indie Flower';
+  color: blue;
+}
 input {
   width: 75%;
-  border: 0;
-  outline: 0;
-  padding: 0 0;
-  border-bottom: 2px solid #d3d3d3;
   box-shadow: none;
+  border: none;
+  outline: none;
   color: #111;
-  font-size: 20;
+  font-size: 20px;
   height: 30px;
   margin-left: 23px;
-  background-color: rgb(182, 214, 182);
+  background-color:white ;
 }
+.inputCont button{
+  font-size: 40px;
+  background: none;
+  box-shadow: none;
+}
+
+
 input:focus,
 input:valid {
   border-color: white;
 }
-input:focus ~ label,
-input:valid ~ label {
+input:focus~label,
+input:valid~label {
   font-size: 14px;
   top: -24px;
   color: #00dd22;
 }
 
-form button {
+form button{
   width: 40px;
   height: 40px;
   margin-left: 10px;
-  border-radius: 10px;
   border: none;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
   font-size: 30px;
 }
-.deleteContainer {
+.deleteContainer{
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  margin-bottom: 25px;
 }
-.deleteList {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  font-size: 60px;
-  padding: 0px;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-  border: none;
-  text-align: center;
-  padding-top: 3px;
+.deleteList{
+  padding: 10px;
+ 
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+  width: auto;
+  height: auto;
+  margin-left: 0px;
+  font-size: 20px;
+ 
 }
-.deleteList:hover {
-  background-color: rgb(211, 48, 48);
-  color: white;
-}
-.deleteList:active {
+/* .deleteList:hover{
+ background-color: rgb(211, 48, 48);
+ color: white;
+} */
+.deleteList:focus{
   box-shadow: none;
 }
-form button:hover {
+
+
+/* form button:hover{
   background-color: rgb(91, 207, 91);
   color: white;
+} */
+.getAndAdd{
+  position:relative;
+  bottom: 1vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.getAndAdd a {
+  color: white;
+  margin: 10px;
+  border: 2px solid white;
+  padding: 9px 15px;
+}
+.removed-item {
+  animation: removed-item-animation 1s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+  /*transform origin is moved to the bottom left corner*/
+  transform-origin: 0% 100%;
+}
+
+
+.showListBody{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* padding: 10vmin; */
+  background:none;
+  font-family: "Caveat", cursive;
+  font-size: 2rem;
+  padding-bottom: 80px;
+}
+
+
+.paper {
+  --paper-dark: #e5c93d;
+  --paper-color: #ffed87;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-width: 270px;
+  min-height: 120px;
+  background: linear-gradient(
+    135deg,
+    var(--paper-dark),
+    30%,
+    var(--paper-color)
+  );
+  box-shadow: 3px 3px 2px var(--paper-shadow);
+  transform: rotate(10deg);
+  transform-origin: top left;
+  margin-top: 50px;
+}
+
+.paper button {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background: none;
+  font-size: 25px;
+  font-family: 'Indie Flower';
+  font-weight: 500;
+}
+
+.pin {
+  --pin-color: #d02627;
+  --pin-dark: #9e0608;
+  --pin-light: #fc7e7d;
+  display: block;
+  position: absolute;
+  left: 20px;
+  width: 60px;
+  height: 50px;
+}
+
+.shadow {
+  position: absolute;
+  top: 18px;
+  left: -8px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: radial-gradient(var(--paper-shadow), 20%, rgba(201, 191, 141, 0));
+}
+
+.metal {
+  position: absolute;
+  width: 5px;
+  height: 20px;
+  background: linear-gradient(to right, #808080, 40%, #eae8e8, 50%, #808080);
+  border-radius: 0 0 30% 30%;
+  transform: rotate(50deg);
+  transform-origin: bottom left;
+  top: 15px;
+  border-bottom: 1px solid #808080;
+}
+
+.bottom-circle {
+  position: absolute;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--pin-color);
+  background: radial-gradient(
+    circle at bottom right,
+    var(--pin-light),
+    25%,
+    var(--pin-dark),
+    90%,
+    var(--pin-color)
+  );
+}
+
+/* Barrel */
+.bottom-circle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 20px;
+  height: 30px;
+  transform: rotate(55deg);
+  transform-origin: 100% 100%;
+  border-radius: 0 0 40% 40%;
+  background: linear-gradient(
+    to right,
+    var(--pin-dark),
+    30%,
+    var(--pin-color),
+    90%,
+    var(--pin-light)
+  );
+}
+
+/* Top circle */
+.bottom-circle::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at right,
+    var(--pin-light),
+    30%,
+    var(--pin-color),
+    var(--pin-dark) 80%
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes removed-item-animation {
+  0% {
+      opacity: 1;
+      transform: rotateZ(0);
+}
+
+  100% {
+      opacity: 0;
+      transform: translateY(600px) rotateZ(90deg);
+  }
 }

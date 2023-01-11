@@ -1,0 +1,13 @@
+<%-include("header")-%>
+    
+<div class="newListCont">
+  <div class="getAndAdd">      
+    <a href="/home/<%= UserName %>"><i class="fas fa-list-ul"></i></a>
+  </div>
+<form  action="/home/getMyList/<%= UserName %>" method="POST">
+  <label for="">Create New List</label><br/>
+  <input style="color: white; width: 300px;" name="myListName" type="text" required>
+  <button style="background: none; border: 2px solid white; color: white; padding: 3px; margin-top: 5px;" ><i class="fas fa-sign-out-alt"></i></button>
+</form>
+</div>
+<%-include("footer")-%>

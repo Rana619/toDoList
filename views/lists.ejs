@@ -1,60 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="\style.css">
-    <title>What to Do Today</title>
-    <script>
-      function confirmSubmit()
-{
-var agree=confirm("Are you sure you wish to continue?");
-if (agree)
- return true ;
-else
- return false ;
-}
-    </script>
-</head>
-<body>
-  
-    <div class="container" >
+<%-include("header")-%>
 
-        <h1 class="headerDate"><%=  listTitel %></h1>
-      <ul class="listCont">
-        <%  for(var i=0 ; i<listItems.length ; i++){ %>
-          <div class="listcontainer">
-            <li class="list_item">
-              <form id="cmpltBtn" action="/complete" method="POST">
-                <button id="chkbox" name="cpltItem" value=<%= listItems[i].replace(/\s/g, '-') %> type="submit"<i class="fas fa-check"></i>
-                </button>
-              </form>
-              <%= listItems[i] %>
-            </li>
-            <form class="deletebtn" action="/deleteindi" method="POST">
-                <button id="deletebutton"  name="delItem" value=<%= listItems[i].replace(/\s/g, '-') %> type="submit">X</button>
-              </form>
-              
-            </div>
-        <%  }  %>
-      </ul>
-    <form class="inputCont" action="/" method="POST">
-      <input type="text" id="name" name="listitem" autocomplete="off" placeholder="Task" required />
-      <button type="submit" name="list" value=<%= listTitel %> ><i class="fas fa-plus"></i></button>
-    </form>
-       
-      <form action="/delete" method="POST" class="deleteContainer">
-        
-        <button type="submit" class="deleteList raman" name="clearList" onclick='return confirmSubmit()'><i class="fas fa-times"></i></button>
-        
-    </form>
-   
+
+
+  <div class="container">
+    <div class="getAndAdd">
+
+      <a href="/home/createList/<%= userIdName %>"><i class="fas fa-edit"></i></a>
+
+      <a href="/home/<%= userIdName %>"><i class="fas fa-list-ul"></i></a>
     </div>
+    <ul class="listCont">
+      <div class="noteHeader">
+        <div class="headerDate">
+          <div class="box1">
+            <div class="box2">
+              <div class="dateCont"><%= cDay %><sup>th</sup></div>
+            </div>
+          </div>
+          <div class="monthName"><%= cMonth %></div>
+        </div>
+        <div class="listTitle">
+          <%= listTitelim %>
+        </div>
+      </div>
+      <div class="topLine"></div>
+      <div class="topLine"></div>
+      <% for(var i=0 ; i<listItems.length ; i++){ %>
+        <div class="listcontainer">
+          <li class="list_item">
+            <form id="cmpltBtn" action="/complete/<%= listItems[i].userId %>/<%= listItems[i]._id %>" method="POST">
+              <button id="chkbox" name="cpltItem" value="<%= listItems[i].listTitel %>" type="submit">
+              <% if( listItems[i].complete_status === "empty_it" ){ %>
+                <i class="far fa-circle"></i>
+              <% }else{ %>
+                <i class="far fa-check-circle"></i>
+              <% } %>
+              </button>
+            </form>
+            <span class="<%= listItems[i].complete_status %>">
+             <%= listItems[i].listItem %>
+            </span ><br /><span class="timeShow">
+              <%= listItems[i].timeAll %>
+            </span>
+          </li>
+          <form class="deletebtn" action="/deleteindi/<%= listItems[i].listTitel %>/<%= listItems[i]._id %>"
+            method="POST">
+            <button id="deletebutton" name="delItem" value="<%= listItems[i].userId %>" type="submit"
+              onclick='return confirmDeleteSingle()'><i class="far fa-times-circle"></i></button>
+          </form>
+        </div>
 
-    <script src="fun.js">
-    
-    </script>
-</body>
-</html>
+        <% } %>
+        <form class="inputCont" action="/add/<%= userIdName %>/<%=  listTitelim  %>" method="POST">
+          <input type="text" id="name" name="listitem" autocomplete="off" placeholder="Add Task" required />
+          <button type="submit" name="TitelValue" value="<%=  listTitelim %>">+</button>
+        </form>
+        <div class="bottomPart"></div>
+
+    </ul>
+
+
+    <form action="/delete/<%= userIdName %>/<%= listTitelim  %>" method="POST" class="deleteContainer">
+
+      <button type="submit" class="deleteList" name="clearList" onclick='return confirmDeleteAll()'>Delete All</button>
+
+    </form>
+
+  </div>
+
+  <script>
+    function confirmDeleteAll() {
+      var agree = confirm("Are you sure to delete the whole list?");
+      if (agree)
+        return true;
+      else
+        return false;
+    }
+    function confirmDeleteSingle() {
+      var agree = confirm("It will delete the single list item.. ");
+      if (agree)
+        return true;
+      else
+        return false;
+    }
+  </script>
+  <%-include("footer")-%>

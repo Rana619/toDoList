@@ -1,0 +1,32 @@
+<%-include("header")-%>
+<div class="listShowCont">
+    <div class="getAndAdd">
+        <a href="/home/createList/<%= userIdName %>"><i class="fas fa-edit"></i></a>
+      </div>
+<h1>Your List</h1> 
+<div class="showListBody">
+    <%  for(var i=0 ; i< listTitels.length ; i++){ %>
+        <form class="paper" action="/home/<%= userIdName %>/<%= listTitels[i].listTitel %>" >
+            <a href="/home/delete/<%= userIdName %>/<%= listTitels[i].listTitel %>/<%= listTitels[i]._id %>" onclick='return confirmDeleteSingle()'  class="pin">
+              <div class="shadow"></div>
+              <div class="metal"></div>
+              <div class="bottom-circle"></div>
+            </a>
+            <button type="submit" ><%= listTitels[i].listTitel %></button>
+        </form>
+    <%  }  %>
+</div>
+</div>
+
+<script>
+     function confirmDeleteSingle()
+          {
+            var agree=confirm("It will delete the single list item.. ");
+            if (agree)
+               return true ;
+            else
+               return false ;
+          }
+</script>
+
+<%-include("footer")-%>
